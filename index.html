@@ -512,13 +512,11 @@
             } 
             catch (e) {
                 console.error(e);
-                
-                alert("فشل إنشاء/رفع المفتاح. تأكد أن السيرفر يعمل وأن GITHUB_TOKEN مضبوط.");
-                
+                let msg = "فشل إنشاء/رفع المفتاح. تأكد أن السيرفر يعمل وأن GITHUB_TOKEN مضبوط.";
+                if (e && e.message) msg += "\n" + e.message;
+                alert(msg);
                 btnText.textContent = "حاول مجددًا";
-                
                 btnLoader.style.display = "none";
-                
                 goBtn.disabled = false;
             }
         });
